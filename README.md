@@ -1,3 +1,8 @@
 # AI-ebook-to-audiobook
-program uses suno-ai/bark to convert ebook to audiobook
-simply put a text in the ebook.txt file and it will be converted to a wav file, there is a choice of Polish and English voice, if there is too much text in one line it will not be converted properly, it is recommended to have one two sentences per line, if the program is stopped it will resume after restarting
+- program uses suno-ai/bark to convert ebook to audiobook
+- simply put a text in the ebook.txt file and it will be converted to a wav file
+- there is a choice of Polish and English voice
+- if there is too much text in one line it will not be converted properly
+- it is recommended to have one two sentences per line
+- if the program is stopped it will resume after restarting
+- ffmpeg.exe and ffprobe.exe is required
