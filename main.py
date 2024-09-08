@@ -10,36 +10,48 @@ from pydub import AudioSegment
 from pathlib import Path
 preload_models()
 ##########################language selection
-print("select voice language 1 - english, 2 - polish") 
+print("select voice language 1 - english, 2 - polish")
 flag_0 = 0
 flag_0 = int(input())
-if (flag_0==1):
+if flag_0 == 1:
     SPEAKER = "v2/en_speaker_0"
-if (flag_0==2):
+elif flag_0 == 2:
     SPEAKER = "v2/pl_speaker_8"
+else:
+    print("invalid choice, default = 1")
+    SPEAKER = "v2/en_speaker_0"
 ##########################check if done or missing text
 if(Path("file.wav").is_file()):
-     print("file.wav already created, press enter to continue...")
+     print("file.wav already created, press enter to exit...")
      input()
      quit()
 if(Path("ebook.txt").is_file() == False):
-     print("ebook.txt with text does not exist, press enter to continue...")
+     print("ebook.txt with text does not exist, press enter to exit...")
      input()
      quit()
 #########################split
 print("loading file ebook.txt...")
 parts = list()
-obj_0 = open("ebook.txt", "r",encoding="utf-8")
-parts = obj_0.readlines()
-obj_0.close()
-##########################delete blank parts
-print("checking for blank lines...")
+open("ebook.txt", "r", encoding="utf-8") as ebook_0:
+text_0 = ebook_0.read()
+ebook_0.close()
+current_part = ""
+for character in text_0:
+    current_part += character
+    if character in ['.', ',', '\n']:
+        parts.append(current_part.rstrip('\n'))
+        current_part = ""
+if current_part:
+    parts.append(current_part)
+print(parts)
+##########################delete blanks
 iterator_0 = 0
 while(iterator_0 < len(parts)):
-    if len(parts[iterator_0])<2:
+    if len(parts[iterator_0])<1:
         parts.pop(iterator_0)
         iterator_0 = iterator_0 - 1
     iterator_0 = iterator_0 + 1
+print(parts)
 #########################check wavs
 print("checking for already created files...")
 start = len(parts)
