@@ -9,6 +9,15 @@ from IPython.display import Audio
 from pydub import AudioSegment
 from pathlib import Path
 preload_models()
+##########################check if done or missing text
+if(Path("file.wav").is_file()):
+     print("file.wav already created, press enter to exit...")
+     input()
+     quit()
+if(Path("ebook.txt").is_file() == False):
+     print("ebook.txt with text does not exist, press enter to exit...")
+     input()
+     quit()
 ##########################language selection
 print("select voice language 1 - english, 2 - polish")
 flag_0 = 0
@@ -20,15 +29,6 @@ elif flag_0 == 2:
 else:
     print("invalid choice, default = 1")
     SPEAKER = "v2/en_speaker_0"
-##########################check if done or missing text
-if(Path("file.wav").is_file()):
-     print("file.wav already created, press enter to exit...")
-     input()
-     quit()
-if(Path("ebook.txt").is_file() == False):
-     print("ebook.txt with text does not exist, press enter to exit...")
-     input()
-     quit()
 #########################split
 print("loading file ebook.txt...")
 parts = list()
