@@ -38,19 +38,20 @@ ebook_0.close()
 current_part = ""
 for character in text_0:
     current_part += character
-    if character in ['.', ',', '\n']:
+    if character in ['.', ',', '\n', '?', '!', ':', ';']:
         parts.append(current_part.rstrip('\n'))
         current_part = ""
 if current_part:
     parts.append(current_part)
 print(parts)
-##########################delete blanks
-iterator_0 = 0
-while(iterator_0 < len(parts)):
-    if len(parts[iterator_0])<1:
-        parts.pop(iterator_0)
-        iterator_0 = iterator_0 - 1
-    iterator_0 = iterator_0 + 1
+##########################delete parts without alphanumeric symbol
+filtered_parts = []
+for part in parts:
+  for character in part:
+    if character.isalnum():
+      filtered_parts.append(part)
+      break
+parts = filtered_parts
 print(parts)
 #########################check wavs
 print("checking for already created files...")
