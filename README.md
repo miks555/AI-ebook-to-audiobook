@@ -5,4 +5,11 @@
 - if there is too much text in one line it will not be converted properly
 - it is recommended to have one or two sentences per line
 - if the program is stopped it will resume after restarting
-- ffmpeg, ffprobe and scipy is required
+- ffmpeg and ffprobe
+- to run install:
+```
+pip install bark
+pip install scipy
+pip install ipython
+pip install pydub
+```
