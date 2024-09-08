@@ -39,7 +39,7 @@ current_part = ""
 for character in text_0:
     current_part += character
     if character in ['.', ',', '\n', '?', '!', ':', ';']:
-        parts.append(current_part.rstrip('\n'))
+        parts.append(current_part.strip())
         current_part = ""
 if current_part:
     parts.append(current_part)
