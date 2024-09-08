@@ -9,7 +9,6 @@
 - to run install:
 ```
 pip install bark
-pip install scipy
 pip install ipython
 pip install pydub
 ```
