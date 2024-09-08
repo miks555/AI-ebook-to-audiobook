@@ -38,12 +38,11 @@ ebook_0.close()
 current_part = ""
 for character in text_0:
     current_part += character
-    if character in ['.', ',', '\n', '?', '!', ':', ';']:
+    if character in ['.', '?', '!', ':', ';', '\n', '\t', '\r', '\f']:
         parts.append(current_part.strip())
         current_part = ""
 if current_part:
     parts.append(current_part)
-print(parts)
 ##########################delete parts without alphanumeric symbol
 filtered_parts = []
 for part in parts:
@@ -52,7 +51,6 @@ for part in parts:
       filtered_parts.append(part)
       break
 parts = filtered_parts
-print(parts)
 #########################check wavs
 print("checking for already created files...")
 start = len(parts)
