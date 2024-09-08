@@ -38,7 +38,7 @@ ebook_0.close()
 current_part = ""
 for character in text_0:
     current_part += character
-    if character in ['.', '?', '!', ':', ';', '\n', '\t', '\r', '\f']:
+    if character in ['.', '?', ',', '!', ':', ';', '\n', '\t', '\r', '\f']:
         parts.append(current_part.strip())
         current_part = ""
 if current_part:
