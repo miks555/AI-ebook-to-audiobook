@@ -32,7 +32,7 @@ if(Path("ebook.txt").is_file() == False):
 #########################split
 print("loading file ebook.txt...")
 parts = list()
-open("ebook.txt", "r", encoding="utf-8") as ebook_0:
+ebook_0 = open("ebook.txt", "r", encoding="utf-8")
 text_0 = ebook_0.read()
 ebook_0.close()
 current_part = ""
